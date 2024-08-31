@@ -2,7 +2,7 @@
 
 <p>In this repository, a collection of projects has been included to showcase skills and expertise in coding across various programming languages. Each project reflects the ability to tackle diverse challenges and demonstrates proficiency in technology and problem-solving across various domains.</p>
 
-## Table of Contents
+## Projects:
 - [Web Development](#web-development)
 - [Video Games Development](#video-games-development)
 - [Blockchain](#blockchain)
@@ -143,6 +143,8 @@
 2. **maxResourcesM:** Enhance the recursive solution with memoisation to optimise performance and reduce computation time for large grids.
 
 
+## Artificial Intelligence
+
 ### [ Artificial Intelligence](link-to-project)
 
 - **Description:** This project focuses on implementing various search algorithms and game agents as part of an artificial intelligence assignment. The primary tasks involve implementing the A* search algorithm, developing a ghost agent for the Pacman game that uses Uniform Cost Search (UCS), and solving the Tower of Hanoi problem using search algorithms and heuristics. The project provides hands-on experience with search techniques and game AI development.
@@ -169,11 +171,9 @@
 1. **Feature Selection:** Use `kNN_GA_simple.java` to implement a genetic algorithm for selecting features that improve classification accuracy while meeting constraints (accuracy ≥ 85% and ≤ 40 features).
 2. **GA Implementation:** Modify the code to perform selection, crossover, and mutation operations, and produce results in `kNN_GA_output.txt` indicating selected features.
 
-## Contact
+## Contact:
 <p>If you'd like to get in touch, feel free to reach out:</p>
 
 - **Email:** nabeena200203@gmail.com
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile/)
-- **GitHub:** [Your GitHub Profile](https://github.com/your-username)
-
-
+- **Phone Number:** 07305182948
+- **LinkedIn:** [Nabeena Islam](https://www.linkedin.com/in/nabeena-islam-397795283/)
