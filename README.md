@@ -145,7 +145,7 @@
 
 ## Artificial Intelligence
 
-### [ Artificial Intelligence](link-to-project)
+### [Project 1: Solving Problems by Searching](link-to-project)
 
 - **Description:** This project focuses on implementing various search algorithms and game agents as part of an artificial intelligence assignment. The primary tasks involve implementing the A* search algorithm, developing a ghost agent for the Pacman game that uses Uniform Cost Search (UCS), and solving the Tower of Hanoi problem using search algorithms and heuristics. The project provides hands-on experience with search techniques and game AI development.
 - **Technologies Used:** Java
@@ -158,7 +158,7 @@
 2. **Blinky Ghost Agent:** Implement a ghost agent (`BlinkyGhostAgent` in `GhostAgent.java`) that uses UCS to chase Pacman. Ensure that the ghost accurately follows Pacman during gameplay.
 3. **Tower of Hanoi:** Develop the classes `TowerOfHanoiSearchProblem`, `TowerOfHanoiSearchState`, and `TowerOfHanoiAction` to solve the Tower of Hanoi problem using UCS and A*. Implement a useful heuristic for the A* search.
 
-### [Project: Classification and Genetic Algorithm Optimisation](link-to-project)
+### [Project 2: Classification and Genetic Algorithm Optimisation](link-to-project)
 - **Description:** This project involves two main tasks: classifying brain data (EEG) using the k-Nearest Neighbour (kNN) algorithm and optimising feature selection using a genetic algorithm (GA). The kNN algorithm is implemented with Manhattan distance to classify subjects as either alcoholics or controls based on EEG data. The genetic algorithm is used to enhance classification performance by selecting the most relevant features, adhering to constraints on performance and feature count.
 - **Technologies Used:** Java
 - **Key Features:**
