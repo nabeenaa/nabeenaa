@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <style>
+img {
+    width: 35px
+}
+ #text {
+    text-align: center;
+ }
+ #divtable {
+    padding-top: 15px;
+    justify-content: center;
+    display: flex;
+    
+ }
+#kol{
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #5692DD;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+#stats {
+    margin-top: 10px;
+}
+
+table, th, td {
+          border: 2px solid rgb(22, 6, 80);
+          border-collapse: collapse;
+        }
+        tr:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgba(150, 212, 212, 0.4);
+}
+
+
+   </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+
+        $(() => {
+            $.get(
+                "https://www.cs.kent.ac.uk/people/staff/yh/co539-A1/countryData.php?regions",
+                function (data) {
+
+                    $.each(data, function (index, regions) {
+                        $("#select").append(`<option> ${(regions)} </option>`);
+
+                    });
+
+                },
+                "json"
+            )
+
+            $('#select').on('change', function () {
+                $("#table").find("tr:gt(0)").remove()
+                var continentname = $(this).val();
+                var url = `https://www.cs.kent.ac.uk/people/staff/yh/co539-A1/countryData.php?region=${continentname}`
+                $.get(
+                    url,
+                    function (data) {
+                        var infoget = JSON.stringify(data);
+                        var info = JSON.parse(infoget);
+                        var population = 0;
+                        var countrycount = 0;
+                        const languages = [];
+                        const languagesobj ={};
+                        for (let i = 0; i < info.length; i++) {
+
+                            $("#table").append(`<tr> <td> <img src  =   ${(info[i].flag)} /> </td> <td> ${(info[i].name)} </td> <td> ${(info[i].capital)} </td> <td> ${(info[i].info.population)}  </td> <td>  ${(info[i].info.language)} </td> </tr>`)
+                            countrycount++;
+                            population = population +  info[i].info.population
+                            languages.push(info[i].info.language)
+                        }
+
+                        $.each(languages, function(key,value) {
+                            if (!languagesobj.hasOwnProperty(value)) {
+                                languagesobj[value] = 1;
+                            } else {
+                                languagesobj[value]++;
+                            }
+                        }
+                    );
+                    
+
+                    var key = Object.values(languagesobj);
+                    var popularlanguagecount = Math.max(...key);
+                    var popularlanguagename = (Object.keys(languagesobj).find(key => languagesobj[key] == popularlanguagecount))
+                   
+                        $("#stats").html(" Number of countries = " + countrycount + ", Average Population = " + (population / countrycount)  + ",   Most Popular Language = " + popularlanguagename + ",   Amount of countries that speak it = " + popularlanguagecount + ".")
+                    },
+                    "json"
+                )
+
+            })
+            $("#button").on("click", function () {
+                const searched = $("#inpoot").val()
+                
+                $("#table tr:gt(0)").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(searched.toLowerCase()) > -1)
+                });
+
+            });
+
+        })
+
+    </script>
+</head>
+
+<body>
+    
+
+
+
+    <div id = "text">
+
+        <label id = "kol"> Select a region </label>
+        <select id="select">
+            <option>Select</option>
+        </select>
+
+        <input type="text" id="inpoot"> </input> 
+        <button id="button">Search</button>
+
+        <div id="stats"></div>
+
+
+        
+    </div>
+
+    <div id = "divtable">
+        
+        <table  style="width:80%" id="table">
+            <tr>
+    
+                <th> Flag </th>
+                <th> Name </th>
+                <th> Capital </th>
+                <th> Population </th>
+                <th> Language </th>
+    
+            </tr>
+    
+        </table>
+    </div>
+    
+</body>
+
+</html>
