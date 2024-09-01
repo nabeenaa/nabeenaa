@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <style>
+         body {
+         margin: 20px;
+         }
+         .parent {
+         display: grid;
+         grid-gap: 5px;
+         grid-template-columns: repeat(3, 100px);
+         grid-template-rows: repeat(3, 100px);
+         }
+         .parent > div {
+         padding: 10px;
+         background-color: #ffffff;
+         border: 1px solid black;
+         display: grid;
+         place-items: center;
+         }
+         .buttonReset {
+         padding: 10px;
+         margin: 20px 10px 10px 0px;
+         width: 100px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="boxes" class="parent">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>
+      </div>
+      <button id="resetbutton" class="buttonReset" type="button">Reset</button> 
+   </body>
+   <script>
+      var grid = document.getElementById('boxes');
+      var turn = false;
+      var array = grid.querySelectorAll('div');
+      
+      for (var i = 0; i != array.length; i++)
+      {
+         array[i].style.cursor = 'pointer';
+         array[i].onclick = function() 
+         {
+        if (this.innerHTML != "")
+                 return;
+      
+             if (turn == true)
+             {
+                 turn = false;
+                 this.innerHTML = "<span style='color: red; font-size: 50px'>X</span>";
+             }
+             else
+             {	
+                 turn = true;
+                 this.innerHTML = "<span style='color: green; font-size: 50px'>O</span>";
+             }
+         };
+      }
+      
+      document.getElementById('resetbutton').onclick = function()
+      {
+      	for (var i = 0; i != array.length; i++)
+      	{
+        array[i].innerHTML = "";
+      }
+      }
+   </script>
+</html>

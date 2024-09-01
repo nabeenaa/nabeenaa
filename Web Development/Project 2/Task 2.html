@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+   <style>
+      body {
+      counter-reset: section;
+      text-align:center;
+      }
+      h2::before{
+      counter-increment:section;
+      content:counter(section);
+      }
+      .box {
+      display: inline-flex;
+      height: 77px;
+      float:left;
+      margin-left:0px;
+      width: 77px;
+      }
+   </style>
+   <script type="text/javascript">
+      function ColourMaker()
+      
+      {
+           var number = '0123456789ABCDEF';
+      
+           var ColourSquare = '#';
+           var k = 0;
+      
+            while (k < 6) {
+      
+      
+                ColourSquare = ColourSquare  + number[Math.floor(Math.random() * 16)];
+      
+                k++;
+      
+            }
+      
+          return ColourSquare;
+      
+      }
+      var marginl = 7;
+      function create()
+      
+      {
+      
+          var box = document.createElement("div");
+          box.className="box";
+          box.style.backgroundColor =ColourMaker();
+      
+          var number = document.createElement("h2");
+          box.style.marginLeft = marginl+"px";
+      
+              box.className="box";
+              box.style.backgroundColor =ColourMaker();
+              box.style.marginLeft = marginl+"px";
+              box.appendChild(number);
+              document.body.appendChild(box);
+      
+              marginl = marginl * 2;
+      
+      }
+      
+      function destroy(){
+      const elements = document.getElementsByClassName("box");
+      
+      while (elements.length > 0) elements[0].remove();
+      marginl =7;
+      }
+   </script>
+   <script>
+      function boxQuantity(){
+      var loop = document.getElementById("eachBoxnumber").value;
+      while(loop >0){
+      create();
+      loop --;
+      }
+      }
+          
+   </script>
+</head>
+<body>
+   <label> </label>
+   <input type="number" id="eachBoxnumber">
+   <button onclick="destroy();boxQuantity()">Draw</button>
+   <br><br>
+   <div id="resultantValue"></div>
+</body>
+</html>
