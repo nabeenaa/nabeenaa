@@ -1,0 +1,31 @@
+-- 1.	List the instructors and start_time for all timeslots  related to class course 'Body Pump'. The list should be ordered by the instructor’s name.
+SELECT   instructor, start_time
+FROM     Timeslot t JOIN Class c ON t.cid = c.cid 
+WHERE    course = 'Body Pump'
+ORDER BY instructor;
+
+-- 2.	Find the course and all the related  instructors that are teaching the course. Results should be ordered by the course
+SELECT course,  instructor 
+FROM Class c JOIN Timeslot t ON c.cid = t.cid   
+ORDER BY course;
+
+-- 3.	Show the bookings planned  by a specific user, e.g. uid= ‘U001’. In particular:
+-- a)	Class ID, course, instructor, start_time, and reservation (only if it is ‘1’) for each timeslot, for each class taken by the user.
+SELECT c.cid, course, instructor, start_time, reservation
+FROM   Booking b JOIN Timeslot t ON b.tid = t.tid 
+       JOIN Class c ON t.cid = c.cid          
+WHERE  uid = 'U001'
+AND reservation = 1;  
+
+
+-- b)	The total number of bookings on each of the Class IDs that the user  has reserved, if the given user is a student.
+SELECT cid, 
+       SUM(reservation) AS Final 
+FROM   Booking b JOIN Timeslot t ON b.tid = t.tid
+	     JOIN User u ON u.uid = b.uid	  
+WHERE  b.uid = 'U001' 
+AND student = 'Y'
+GROUP BY cid;
+
+Nabeena Islam
+
