@@ -9,11 +9,11 @@
 - [Language-based security](#language-based-security)
 - [Algorithm](#algorithm)
 - [Artificial Intelligence](#artificial-intelligence)
-- [Algorithm](#algorithm)
+
 
 ## Web Development
 
-### [Project 1: Web Development - jQuery and AJAX](link-to-project)
+### [Project 1: jQuery and AJAX 17/11/2022](link-to-project)
 - **Description:** This project involved creating a dynamic web page using jQuery and AJAX to display detailed data about countries in the world. Users can select a region of interest, and the web page dynamically loads and displays information about the countries within that region, including flags, names, capitals, populations, and languages.
 - **Technologies Used:** HTML, CSS, jQuery, AJAX, Bootstrap.
 - **Key Features:**
@@ -22,7 +22,7 @@
   - Calculation and display of the average population, total number of countries, and the most popular language within a region.
   - A search functionality that filters countries by name or capital based on user input.
 
-### [Project 2: Web Development - HTML, CSS, and JavaScript](link-to-project)
+### [Project 2: HTML, CSS, and JavaScript 11/03/2022](link-to-project)
 - **Description:** This project involved creating multiple interactive web pages utilising HTML, CSS, and JavaScript. The tasks included building a user registration form for a gym, generating dynamic boxes with specific styling rules, and partially implementing a Tic-Tac-Toe game.
 - **Technologies Used:** HTML, CSS, JavaScript.
 - **Key Features:**
@@ -30,24 +30,18 @@
   - **Dynamic Box Generator:** A page that generates a series of boxes with random background colours and specific margin rules, based on user input.
   - **Tic-Tac-Toe Game:** A basic implementation of a Tic-Tac-Toe game board with interactive X and O placement, alternating turns, and reset functionality.
 
-### [Project 3: SQL, PHP, & MySQL - Gym Classes Database](link-to-project)
-- **Description:** This project involved working with a MySQL database for managing gym class bookings. The tasks were split into writing SQL queries to retrieve specific data and developing PHP scripts to interact with the database, display the results, and manage user interactions through a web interface.
-- **Technologies Used:** SQL, PHP, MySQL, HTML, CSS.
+### [Project 3: SQL Gym Management Database Queries 20/02/2022](link-to-project)
+- **Description:** This project involves writing SQL queries to retrieve and manage class booking data for a gym system. The tasks focus on listing class details, finding course instructors, and displaying user-specific bookings, demonstrating practical SQL skills in querying relational databases. The project is crucial for developing database querying capabilities, which are essential for managing user interactions in a web-based application.
+- **Technologies Used:** SQL
 - **Key Features:**
-  - **SQL Queries:** Developed SQL statements to retrieve information such as class schedules, instructor details, and user bookings from the database.
-  - **PHP Scripts:** 
-    - Connected to the MySQL database and displayed query results.
-    - Created a user interface to select specific users and view their bookings.
-    - Implemented a basic authentication system with login and logout functionality using PHP sessions.
-  - **Simple Web System:** Integrated the PHP scripts into a small web system where users must log in to access functionalities, and can log out when done.
-- **Additional Features:**
-  - **CSS Styling:** Improved the presentation of outputs with appropriate colours, fonts, and alignment.
-  - **Good Coding Practices:** Ensured the code was well-documented with comments, and followed proper indentation and coding conventions.
+  - **Instructor and Class Timeslot Query:** Retrieves and orders class timeslot information by instructor for a specific course.
+  - **Course and Instructor Mapping:** Lists all courses along with their assigned instructors.
+  - **User-Specific Bookings:** Displays bookings for a particular user and calculates the total reservations for each class.
 
 
 ## Video Games Development
 
-### [Alien Slayer - Video Game Development](link-to-project)
+### [Alien Slayer - Video Game Development 22/12/2023](link-to-project)
 - **Description:** "Alien Slayer" is a third-person shooter set in a post-apocalyptic city where the player must survive waves of alien enemies. The game features dynamic gameplay mechanics, including enemy AI, slow-motion effects, and a power-up system.
 - **Technologies Used:** Unity, C#, Visual Studio, Adobe Photoshop (for any art assets).
 - **Key Features:**
@@ -72,7 +66,7 @@
 
 ## Blockchain
 
-### [Toychain Blockchain Mining](https://www.cs.kent.ac.uk/people/staff/sb2213/toychain_comp6575_2324_a1/toy-chain.php)
+### [Toychain Blockchain Mining 23/04/2024]()
 - **Description:** This assignment involves creating and mining blocks for a toy blockchain system called Toychain. The goal is to add blocks to the chain with increasing difficulty and submit them through a web interface, ensuring each block adheres to specific requirements and contains a unique miner pseudonym.
 - **Technologies Used:** Python, SHA-256 Hashing, Web Interface (Toychain), Text File Handling.
 - **Key Features:**
@@ -88,9 +82,9 @@
   - **User Input:** Takes previous block and miner pseudonym as input and outputs the newly mined block, nonce used, and its difficulty.
 
 
-## Language-based security
+## Cyber security
 
-### [Project 1: Dynamic Information Flow Control (IFC) Runtime Monitor](link-to-project)
+### [Project 1: Dynamic Information Flow Control (IFC) Runtime Monitor 30/11/2023](link-to-project)
 - **Description:** This project involves implementing a runtime monitor for dynamic information flow control (IFC) within a custom interpreter. The task is to complete a provided template by filling in missing parts to ensure that the interpreter enforces IFC policies correctly. The objective is to validate your understanding of IFC principles and their practical application in a runtime environment.
 - **Technologies Used:** Haskell, Dynamic Information Flow Control (IFC), Functional Programming.
 - **Key Features:**
@@ -100,7 +94,7 @@
   - **Lambda Calculus Support:** Integrated support for lambda calculus, including function application and abstraction, with proper label management.
   - **Template Completion:** Modified a provided template to fill in missing expressions and ensure the correct functioning of the IFC monitor within the interpreter.
 
-### [Project 2: Static Information Flow Control (IFC) Type-Checker](link-to-project)
+### [Project 2: Static Information Flow Control (IFC) Type-Checker 20/01/2024](link-to-project)
 - **Description:** This project focuses on enhancing your understanding of static information flow control (IFC) by implementing a type-checker. Building on a provided base type-checker, your task is to integrate IFC by completing specific cases: lambda expressions, application, if-else statements, and addition. The type-checker ensures that expressions adhere to IFC policies by checking security labels and types statically.
 - **Technologies Used:** Haskell, Static Information Flow Control (IFC), Functional Programming.
 - **Key Features:**
@@ -113,7 +107,7 @@
 
 ## Algorithm
 
-### [Project 1: Dynamic Array Implementation](link-to-project)
+### [Project 1: Dynamic Array Implementation 15/11/2022](link-to-project)
 - **Description:** This project involves implementing a dynamic array in Java as part of an assignment to understand how dynamic arrays function in practice. The goal is to extend a provided `DynamicArray` class by implementing a `MyUoKDynamicArray` class that supports dynamic resising, tracking of operations, and efficient item management. The implementation focuses on methods for adding items, resising the array, calculating amortised complexity, and removing items, all while maintaining accurate performance metrics.
 - **Technologies Used:** Java, Object-Oriented Programming.
 - **Key Features:**
@@ -123,7 +117,7 @@
   - **Operation Tracking:** Maintained global counters for the number of operations performed and items added, used to calculate performance metrics.
   - **Testing and Validation:** Included various test cases to validate the functionality of methods and ensure correctness in resising, item management, and performance calculation.
 
-### [Project 2: Mergesort Variants and Digger Control System](link-to-project)
+### [Project 2: Mergesort Variants and Digger Control System 13/12/2022](link-to-project)
 - **Description:** This project involves implementing and optimising various sorting algorithms and solving a resource collection problem for a digger control system. The Mergesort tasks require implementing several variations of the Mergesort algorithm, including merging two, three, and multiple arrays, as well as a parameterised version. The Digger control system requires developing recursive and memoised solutions to maximise resource collection from a grid map.
 - **Technologies Used:** Java
 - **Key Features:** 
@@ -145,7 +139,7 @@
 
 ## Artificial Intelligence
 
-### [Project 1: Solving Problems by Searching](link-to-project)
+### [Solving Problems by Searching 21/11/2022](link-to-project)
 
 - **Description:** This project focuses on implementing various search algorithms and game agents as part of an artificial intelligence assignment. The primary tasks involve implementing the A* search algorithm, developing a ghost agent for the Pacman game that uses Uniform Cost Search (UCS), and solving the Tower of Hanoi problem using search algorithms and heuristics. The project provides hands-on experience with search techniques and game AI development.
 - **Technologies Used:** Java
@@ -158,18 +152,6 @@
 2. **Blinky Ghost Agent:** Implement a ghost agent (`BlinkyGhostAgent` in `GhostAgent.java`) that uses UCS to chase Pacman. Ensure that the ghost accurately follows Pacman during gameplay.
 3. **Tower of Hanoi:** Develop the classes `TowerOfHanoiSearchProblem`, `TowerOfHanoiSearchState`, and `TowerOfHanoiAction` to solve the Tower of Hanoi problem using UCS and A*. Implement a useful heuristic for the A* search.
 
-### [Project 2: Classification and Genetic Algorithm Optimisation](link-to-project)
-- **Description:** This project involves two main tasks: classifying brain data (EEG) using the k-Nearest Neighbour (kNN) algorithm and optimising feature selection using a genetic algorithm (GA). The kNN algorithm is implemented with Manhattan distance to classify subjects as either alcoholics or controls based on EEG data. The genetic algorithm is used to enhance classification performance by selecting the most relevant features, adhering to constraints on performance and feature count.
-- **Technologies Used:** Java
-- **Key Features:**
-  - **k-Nearest Neighbour Classification:** Utilises Manhattan distance for classification, optimises the number of neighbours to improve accuracy and generates predictions for test data.
-  - **Genetic Algorithm Optimisation:** Implements GA to optimise feature selection, aiming for high classification accuracy with fewer features, and adheres to constraints for performance and feature count.
-#### Classification with k-Nearest Neighbour
-1. **kNN Implementation:** Modify `kNN_simple.java` to use Manhattan distance for classification and find the optimal number of neighbours (`k`) to maximise classification performance.
-2. **Testing:** Develop `kNN_test.java` to apply the optimal `k` to test data, generating predictions stored in `kNN_output.txt`.
-#### Genetic Algorithm Optimisation
-1. **Feature Selection:** Use `kNN_GA_simple.java` to implement a genetic algorithm for selecting features that improve classification accuracy while meeting constraints (accuracy ≥ 85% and ≤ 40 features).
-2. **GA Implementation:** Modify the code to perform selection, crossover, and mutation operations, and produce results in `kNN_GA_output.txt` indicating selected features.
 
 ## Contact:
 <p>If you'd like to get in touch, feel free to reach out:</p>
