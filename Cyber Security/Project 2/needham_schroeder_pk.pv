@@ -1,0 +1,147 @@
+(* Task 1 & 3 *)
+
+(* 'skey' is the type of secret keys *)
+type skey.
+
+(* 'pkey' is the type of public keys *)
+type pkey.
+
+(* 'pk' is a constructor that takes a secret key and returns a public key. *)
+fun pk(skey) : pkey.
+
+(* 'aenc' is a constructor that takes a bitstring, a public key, and returns a bitstring. *)
+fun aenc(bitstring, pkey) : bitstring.
+
+(* 'adec' represents asymmetric decryption. *)
+reduc forall m : bitstring, k : skey; adec(aenc(m, pk(k)), k) = m.
+
+(* 'pack' is a constructor to put together two bitstrings and encrypt them. *)
+fun pack(bitstring, bitstring) : bitstring.
+
+(* 'unpack' is the destructor for 'pack'. *)
+reduc forall x : bitstring, y : bitstring; unpack(pack(x,y)) = (x,y).
+
+(* Shared key encryption *)
+
+(* 'senc' is a constructor that takes a bitstring and a secret key and returns a bitstring. *)
+fun senc(bitstring, skey) : bitstring.
+
+(* 'sdec' represents shared key decryption. *)
+reduc forall m : bitstring, k : skey; sdec(senc(m, k), k) = m.
+
+(* Process identifiers *)
+free Alice : bitstring.
+free Bob : bitstring.
+
+(* Alice's secret keys *)
+free AliceSecretKey : skey [private].
+free BobSecretKey : skey [private].
+
+(* Declare Na as a free variable *)
+free Na : bitstring.
+free c : channel.
+free c2 : channel.
+
+let procA(pkB : pkey) =
+  let msg1 : bitstring = pack(Na, Alice) in
+  let enc_msg1 : bitstring = aenc(msg1, pkB) in
+  out(c, enc_msg1);
+  0.
+
+let procB(pkA : pkey) =
+  in(c, enc_msg1 : bitstring);
+  let (msg1 : bitstring, Alice : bitstring) = unpack(adec(enc_msg1, BobSecretKey)) in
+  new Nb : bitstring;
+  let msg2 : bitstring = pack(Na, Nb) in
+  let enc_msg2 : bitstring = aenc(msg2, pkA) in
+  out(c, enc_msg2);
+  0.
+
+query attacker(Na).
+
+process
+  let pkA : pkey = pk(AliceSecretKey) in
+  let pkB : pkey = pk(BobSecretKey) in
+  out(c2, pkA);
+  out(c2, pkB);
+  (procA(pkB) | procB(pkA))
+
+
+(* Task 2
+File "file.pv", line 48, characters 26-30:
+Warning: identifier Alice rebound.
+Process 0 (that is, the initial process):
+{1}let pkA: pkey = pk(AliceSecretKey) in
+{2}let pkB: pkey = pk(BobSecretKey) in
+{3}out(c2, pkA);
+{4}out(c2, pkB);
+(
+    {5}let msg1: bitstring = pack(Na,Alice) in
+    {6}let enc_msg1: bitstring = aenc(msg1,pkB) in
+    {7}out(c, enc_msg1)
+) | (
+    {8}in(c, enc_msg1_1: bitstring);
+    {9}let (msg1_1: bitstring,Alice_1: bitstring) = unpack(adec(enc_msg1_1,BobSecretKey)) in
+    {10}new Nb: bitstring;
+    {11}let msg2: bitstring = pack(Na,Nb) in
+    {12}let enc_msg2: bitstring = aenc(msg2,pkA) in
+    {13}out(c, enc_msg2)
+)
+
+--  Process 1 (that is, process 0, with let moved downwards):
+{1}let pkA: pkey = pk(AliceSecretKey) in
+{3}out(c2, pkA);
+{2}let pkB: pkey = pk(BobSecretKey) in
+{4}out(c2, pkB);
+(
+    {5}let msg1: bitstring = pack(Na,Alice) in
+    {6}let enc_msg1: bitstring = aenc(msg1,pkB) in
+    {7}out(c, enc_msg1)
+) | (
+    {8}in(c, enc_msg1_1: bitstring);
+    {9}let (msg1_1: bitstring,Alice_1: bitstring) = unpack(adec(enc_msg1_1,BobSecretKey)) in
+    {10}new Nb: bitstring;
+    {11}let msg2: bitstring = pack(Na,Nb) in
+    {12}let enc_msg2: bitstring = aenc(msg2,pkA) in
+    {13}out(c, enc_msg2)
+)
+-- Query not attacker(Na[]) in process 1.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(Na[])
+goal reachable: attacker(Na[])
+
+Derivation:
+
+1. The attacker initially knows Na[].
+attacker(Na[]).
+
+2. By 1, attacker(Na[]).
+The goal is reached, represented in the following fact:
+attacker(Na[]).
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c2, ~M) with ~M = pk(AliceSecretKey) at {3}
+
+out(c2, ~M_1) with ~M_1 = pk(BobSecretKey) at {4}
+
+out(c, ~M_2) with ~M_2 = aenc(pack(Na,Alice),pk(BobSecretKey)) at {7}
+
+The attacker has the message Na.
+A trace has been found.
+RESULT not attacker(Na[]) is false.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker(Na[]) is false.
+
+--------------------------------------------------------------
+The ProVerif output and analysis confirm that the attacker can successfully obtain nonce Na. 
+The protocol structure allows for Na's exposure due to its transmission in plaintext. 
+While not explicitly shown, a similar process would apply to Nb. The security relies on key 
+confidentiality rather than nonce secrecy, aligning with public-key cryptography principles.
+
+ *)
